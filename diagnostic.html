@@ -1,0 +1,94 @@
+{% extends 'system/layout.html' %}
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="page-header">
+  <h2>{{ title }}</h2>
+</div>
+
+{% bootstrap_messages %}
+
+
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="/static/css/visual.css" type="text/css">
+
+ <script src="/static/js/visual.js"></script>
+
+<div class="row">
+  <div class="col-sm-12">
+
+    <section id="form" class="agv05-diagnostic">
+
+    <div class ="wrap">
+
+ <aside id="side-menu" class="aside" role="navigation">            
+        <ul class="nav nav-list accordion">                    
+          
+           <li class="nav-header">
+            <div class="link"><i class="fa fa-lg fa-users"></i>Data Visualization<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu">
+              <li class ="active"><a href="{% url 'system:diagnostic' %}">AGV Mileage Vs Timestamp</a></li>
+              <li><a href="{% url 'system:boardtemperature' %}">Board Temperature Vs Timestamp</a></li>
+              <li><a href="{% url 'system:lasersensor' %}">Laser Sensor Output Vs Timestamp</a></li>
+              <li><a href="{% url 'system:batterycurrent' %}">Battery Current Vs Timestamp</a></li>
+            </ul>
+          </li>
+
+            <li class="nav-header">
+            <div class="link"><i class="fa fa-lg fa-users"></i>Download<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu">
+              <li><a href="{% url 'system:csv' %}">CSV</a></li>
+            </ul>
+          </li>
+
+      </ul>
+  </aside>   
+  
+  <!--Body bodycontent-->
+  <div class="bodycontent">
+  
+   <div class="top-bar">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
+    </div>
+  
+    <section class="content-inner">
+    <div class = "huhu">
+  <svg width="960" height="520"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script src="/static/js/Visualization/agvmileage.js"></script>
+</div>
+
+ <div class = "buttons">
+      <input type="button"  id='1hr' onclick="transition(1)" value="1 Hour" />
+      <input type="button"  id='3hr' onclick="transition(3)" value="3 Hours" />
+      <input type="button"  id='6hr' onclick="transition(6)" value="6 Hours"/>
+      <input type="button"  id='1dy' onclick="transition(24)" value="1 Day" />
+      <input type="button"  id='7dys' onclick="transition(168)" value="7 Days" />
+      <input type="button"  id='1mth' onclick="transition(720)" value="1 Month" />
+      <input type="button"  id='1yr' onclick="transition(8640)" value="1 Year" />
+      <input type="button"  id='3yr' onclick="transition(25920)" value="3 Years" />
+
+
+      </div>
+
+  
+  </section>
+
+  </div>
+
+  </div>
+    </section>
+
+  </div>
+</div>
+
+{% endblock %}
